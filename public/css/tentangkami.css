@@ -1,0 +1,646 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Ubuntu', sans-serif;
+  background-color: #f4f4f4;
+  padding-top: 80px;
+}
+
+
+header {
+  width: 100%;
+  height: 80px;
+  background: linear-gradient(to right, #46074e, #197BD0);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+}
+
+.nav-container {
+  width: 100%;
+  max-width: 1366px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 40px;
+}
+
+/* ===== Logo + Brand ===== */
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo {
+  width: 45px;
+  height: auto;
+}
+
+.brand-name {
+  color: #fff;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+/* ===== Menu Tengah ===== */
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 35px; /* sedikit lebih rapat */
+  margin-left: 0px; /* jarak dari logo, tidak terlalu jauh */
+  flex-shrink: 0;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-size: 13px; /* semua teks 13px */
+  font-weight: normal; /* tidak bold */
+  position: relative;
+  letter-spacing: 0.3px;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: #e5e5e5;
+}
+
+.nav-links a.active::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 100%;
+  height: 2px;
+  background-color: white;
+  border-radius: 2px;
+}
+
+/* ===== Search Bar (Desktop) ===== */
+.search-bar {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+  padding: 6px 12px;
+  background: transparent;
+  width: 220px;
+  margin-right: 35px; /* jarak ke tombol daftar */
+}
+
+.search-bar i {
+  margin-right: 8px;
+  color: rgba(255,255,255,0.7);
+}
+
+.search-bar input {
+  border: none;
+  background: transparent;
+  color: white;
+  outline: none;
+  width: 100%;
+  font-size: 13px;
+  font-weight: 400;
+}
+
+/* ===== Tombol Daftar Online ===== */
+.daftar-online {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 150px;
+  height: 40px;
+  border-radius: 25px;
+  border: 1px solid rgba(255,255,255,0.5);
+  background: rgba(255,255,255,0.1);
+  color: white;
+  font-size: 13px;
+  font-weight: 400;
+  text-decoration: none;
+  letter-spacing: 0.3px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.daftar-online:hover {
+  background: rgba(255,255,255,0.3);
+}
+
+/* ===== Hamburger (Mobile) ===== */
+#menu-toggle {
+  display: none;
+}
+
+.hamburger {
+  display: none;
+  font-size: 22px;
+  color: white;
+  cursor: pointer;
+}
+
+/* ===== Search Mobile ===== */
+.mobile-search {
+  display: none;
+  align-items: center;
+  gap: 10px;
+  border-bottom: 1px solid rgba(255,255,255,0.5);
+  padding: 5px 0;
+  width: 70%;
+}
+
+.mobile-search i {
+  color: rgba(255,255,255,0.8);
+}
+
+.mobile-search input {
+  background: transparent;
+  border: none;
+  color: white;
+  outline: none;
+  font-size: 13px;
+  font-weight: 400;
+  width: 100%;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 992px) {
+  .hamburger {
+    display: block;
+  }
+
+  .nav-links {
+  position: fixed;
+  top: 80px;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: linear-gradient(to bottom right, #46074e, #197BD0);
+  flex-direction: column;
+  justify-content: center;
+  gap: 30px;
+  transform: translateY(-120%);
+  transition: 0.4s;
+  margin-left: 0;
+}
+
+
+  #menu-toggle:checked ~ .nav-links {
+  transform: translateY(0);
+}
+
+  .search-bar {
+    display: none;
+  }
+
+  .mobile-search {
+    display: flex;
+  }
+
+  .daftar-online {
+    display: none;
+  }
+}
+
+
+/* ===== Bagian Tentang Kami ===== */
+.tentang-kami {
+  position: relative;
+  width: 100%;
+  height: 90vh;
+  overflow: hidden;
+  font-family: 'Ubuntu', sans-serif; /* font utama section */
+}
+
+/* ✅ Tambahan untuk teks di dalamnya */
+.tentang-kami-content h1 {
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 36px;      /* sesuai permintaan */
+  font-weight: normal;     /* tidak bold */
+  color: white;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.tentang-kami img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Overlay ungu transparan */
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to right, rgba(77, 0, 102, 0.8), rgba(77, 0, 102, 0.1));
+  z-index: 1;
+}
+
+/* Teks “TENTANG KAMI” */
+.tentang-kami-content {
+  position: absolute;
+  bottom: 40px;
+  left: 80px;
+  z-index: 2;
+}
+
+.tentang-kami-content h1 {
+  color: white;
+  font-size: 2.2rem;
+  text-transform: uppercase;
+  font-weight: 600;
+  margin: 0;
+}
+
+/* ===== Responsif ===== */
+@media (max-width: 1024px) {
+  .tentang-kami-content {
+    bottom: 30px;
+    left: 60px;
+  }
+  .tentang-kami-content h1 {
+    font-size: 1.8rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .tentang-kami {
+    height: 70vh;
+  }
+  .tentang-kami-content {
+    bottom: 25px;
+    left: 40px;
+  }
+  .tentang-kami-content h1 {
+    font-size: 1.6rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .tentang-kami {
+    height: 60vh;
+  }
+  .tentang-kami-content {
+    bottom: 20px;
+    left: 25px;
+  }
+  .tentang-kami-content h1 {
+    font-size: 1.3rem;
+  }
+}
+
+/* Font & layout dasar */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Ubuntu', sans-serif;
+  background-color: #fff;
+  color: #333;
+  line-height: 1.7;
+}
+
+.profil-section {
+  width: 100%;
+  padding: 80px 8%;
+  box-sizing: border-box;
+}
+
+/* Bagian judul & deskripsi */
+.profil-content {
+  text-align: left;
+  margin-bottom: 60px;
+}
+
+.profil-content h1 {
+  font-size: 36px;
+  font-weight: 400;
+  margin-bottom: 20px;
+}
+
+.profil-content p {
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: 300; /* Light */
+  font-size: 16px;  /* sesuai permintaan */
+  color: #4A4A4A;
+  line-height: 28px;
+  max-width: 900px;
+}
+
+/* Kartu VISI & MISI */
+/* Container seluruh visi & misi */
+.visi-misi-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 5%;
+  margin-top: 50px;
+}
+
+/* Card VISI dan MISI */
+.card {
+  width: 48%; /* Besar seperti gambar profil */
+  text-align: left;
+}
+
+/* Ukuran gambar dalam card, responsif */
+.card img {
+  width: 100%;
+  height: 280px; /* Bisa kamu ubah ke 300px kalau mau lebih tinggi */
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.card h2 {
+  font-size: 26px;
+  margin-top: 20px;
+  font-weight: 500;
+  color: #333;
+}
+
+.card p {
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 28px;
+  color: #4A4A4A;
+  margin-top: 10px;
+  text-align: justify;
+  max-width: 100%;
+}
+
+@media (max-width: 992px) {
+  .profil-section {
+    padding: 60px 6%;
+  }
+
+  .profil-content h1 {
+    font-size: 32px;
+  }
+
+  .profil-content p {
+    font-size: 22px;
+  }
+
+  .visi-misi-container {
+    gap: 30px;
+  }
+
+  .card {
+    flex: 1 1 48%;
+  }
+}
+
+@media (max-width: 768px) {
+  .profil-section {
+    padding: 50px 5%;
+  }
+
+  .profil-content h1 {
+    font-size: 30px;
+    text-align: center;
+  }
+
+  .profil-content p {
+    font-size: 20px;
+    text-align: center;
+  }
+
+  .visi-misi-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .card {
+    width: 100%;
+    max-width: 500px;
+  }
+
+  .card h2 {
+    font-size: 22px;
+  }
+}
+
+@media (max-width: 480px) {
+  .profil-section {
+    padding: 40px 4%;
+  }
+
+  .profil-content h1 {
+    font-size: 26px;
+  }
+
+  .profil-content p {
+    font-size: 18px;
+  }
+
+  .card h2 {
+    font-size: 20px;
+  }
+}
+
+.btn-layanan-container {
+  position: relative;
+  margin-left: 27%; 
+  margin-top: 40px;  
+}
+
+.btn-layanan {
+  display: inline-flex;
+  justify-content: left;
+  align-items: center;
+  padding: 14px 60px; 
+  border-radius: 50px;
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 16px;
+  letter-spacing: 1px;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: #1f4e7c;
+  border: 2px solid transparent;
+  background: linear-gradient(#fff, #fff) padding-box,
+              linear-gradient(to right, #46074e, #197BD0) border-box;
+  transition: all 0.3s ease;
+}
+
+@media (max-width: 768px) {
+  .btn-layanan {
+    padding: 12px 40px;   
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .btn-layanan {
+    padding: 10px 30px;   
+    font-size: 13px;
+  }
+}
+
+.hubungi-kami {
+  background-color: #fff;
+  text-align: center;
+  padding: 80px 20px;
+  font-family: 'Ubuntu', sans-serif;
+  color: #333;
+}
+
+.pemisah {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto 40px;
+  border: none;
+  border-top: 1px solid #e0e0e0; 
+}
+
+.hubungi-kami h2 {
+  font-size: 26px;
+  text-transform: uppercase; 
+  font-weight: normal;
+  margin-bottom: 15px;
+}
+
+.hubungi-kami h3 {
+  font-size: 20px;
+  font-weight: normal;
+  text-transform: uppercase;
+  color: #555;
+  margin-bottom: 25px;
+}
+
+.hubungi-kami p {
+  font-size: 16px;
+  font-weight: normal;
+  color: #444;
+  margin: 6px 0;
+}
+
+.tombol-kontak {
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.btn-gradient {
+  background: linear-gradient(90deg, #46074E, rgb(25, 123, 208, 0.8));
+  color: white;
+  text-decoration: none;
+  padding: 12px 40px;
+  border-radius: 50px;
+  font-size: 16px;
+  font-weight: normal;
+  transition: 0.3s;
+  width: 200px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-outline {
+  border: 1.5px solid #4a90e2;
+  color: #4a90e2;
+  text-decoration: none;
+  padding: 12px 40px;
+  border-radius: 50px;
+  font-size: 16px;
+  font-weight: normal;
+  transition: 0.3s;
+  width: 200px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (max-width: 1024px) {
+  .hubungi-kami {
+    padding: 60px 15px;
+  }
+
+  .hubungi-kami h2 {
+    font-size: 24px;
+  }
+
+  .hubungi-kami h3 {
+    font-size: 18px;
+  }
+
+  .hubungi-kami p {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 768px) {
+  .tombol-kontak {
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+  }
+
+  .btn-gradient,
+  .btn-outline {
+    width: 80%;
+    max-width: 300px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hubungi-kami {
+    padding: 50px 10px;
+  }
+
+  .hubungi-kami h2 {
+    font-size: 22px;
+  }
+
+  .hubungi-kami h3 {
+    font-size: 17px;
+  }
+
+  .hubungi-kami p {
+    font-size: 14px;
+  }
+
+  .btn-gradient,
+  .btn-outline {
+    width: 90%;
+  }
+}
+
+.footer {
+  width: 100%;
+  background: linear-gradient(90deg, #5a1c6d, #3a4ba0, #4a90e2); 
+  color: white;
+  text-align: center;
+  padding: 15px 0;
+  font-size: 14px;
+  position: relative;
+  bottom: 0;
+}
+
+.footer p {
+  margin: 0;
+  white-space: nowrap; 
+}
+
+@media (max-width: 600px) {
+  .footer {
+    font-size: 12px;
+    padding: 12px 0;
+  }
+}
