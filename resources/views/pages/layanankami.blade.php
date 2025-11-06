@@ -1,44 +1,12 @@
-<!DOCTYPE html>
-<html lang="id">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tentang Kami | Inaklug</title>
+<link rel="stylesheet" href="{{ asset('css/nav.css') }}">
+<link rel="stylesheet" href="{{ asset('css/layanankami.css') }}">
+<link rel="stylesheet" href="{{ asset('css/footer.css') }}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
 
-  <link rel="stylesheet" href="{{ asset('css/navbar.css') }}">
-  <link rel="stylesheet" href="{{ asset('css/layanankami.css') }}">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-  
 <body>
-  <header>
-    <div class="nav-container">
-      <input type="checkbox" id="menu-toggle" />
-      <div class="nav-left">
-        <img src="{{ asset('images/inaklug.png') }}" alt="Logo" class="logo" />
-        <span class="brand-name">Inaklug</span>
-      </div>
-      <nav class="nav-links">
-        <a href="/">Home</a>
-        <a href="/tentangkami">Tentang Kami</a>
-        <a href="/layanankami"  class="active">Layanan Kami</a>
-        <a href="#">Artikel</a>
-        <a href="#">Hubungi Kami</a>
-        <div class="mobile-search">
-          <i class="fa fa-search"></i>
-          <input type="text" placeholder="Ketik pencarian..." />
-        </div>
-      </nav>
-      <div class="search-bar">
-        <i class="fa fa-search"></i>
-        <input type="text" placeholder="Ketik pencarian..." />
-      </div>
-      <a href="#" class="daftar-online">DAFTAR ON-LINE</a>
-      <label for="menu-toggle" class="hamburger">
-        <i class="fa fa-bars"></i>
-      </label>
-    </div>
-  </header>
-</body>
+  @include('layout.navbar')
+
 
 <body>
  <section class="layanan-kami">
@@ -106,15 +74,13 @@
   <p>Gedung Ir. H. M. Suseno - Jl. R.P Soeroso No.6, Menteng, Jakarta Pusat</p>
   <p>Phone : (+62 21) 398 38706 - Fax: (+62 21) 316 1701</p>
   <p>Hotline: +6281519040071 / +62811998167</p>
+  
+<div class="tombol-kontak">
+  <a href="{{ url('/hubungi#lokasi-kami') }}" class="btn-gradient">LOKASI KAMI</a>
+  <a href="{{ url('/hubungi#hubungi-banner') }}" class="btn-outline">KIRIM PESAN</a>
+</div>
 
-  <div class="tombol-kontak">
-    <a href="#" class="btn-gradient">LOKASI KAMI</a>
-    <a href="#" class="btn-outline">KIRIM PESAN</a>
-  </div>
   </section>
-  <footer class="footer">
-    <p>Copyright @ 2020 - Inaklug Indonesia | Hak cipta dilindungi undang-undang</p>
-  </footer>
-
+@include('layout.footer')
 </body>
 </html>
